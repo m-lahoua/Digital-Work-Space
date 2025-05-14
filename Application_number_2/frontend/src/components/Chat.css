@@ -1,0 +1,274 @@
+/* Chat container layout */
+.chat-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  /* Sidebar styles */
+  .sidebar {
+    width: 300px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .sidebar-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  /* Conversation list */
+  .conversation-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 0;
+  }
+  
+  .conversation-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .conversation-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .conversation-item.selected {
+    background-color: #e6f7ff;
+    border-left: 4px solid #1890ff;
+  }
+  
+  .conversation-info {
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .conversation-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .conversation-preview {
+    font-size: 0.9rem;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .conversation-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 65px;
+  }
+  
+  .conversation-time {
+    font-size: 0.75rem;
+    color: #999;
+    margin-bottom: 5px;
+  }
+  
+  .unread-badge {
+    background-color: #1890ff;
+    color: white;
+    border-radius: 10px;
+    padding: 2px 6px;
+    font-size: 0.7rem;
+    min-width: 18px;
+    text-align: center;
+  }
+  
+  /* Professors/Students section */
+  .professors-section,
+  .students-section {
+    padding: 15px 20px;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .professors-section h3,
+  .students-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  .professors-list,
+  .students-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .professor-item,
+  .student-item {
+    padding: 8px 10px;
+    margin: 5px 0;
+    background-color: #e6f7ff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .professor-item:hover,
+  .student-item:hover {
+    background-color: #bae7ff;
+  }
+  
+  /* Main chat area */
+  .chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+  }
+  
+  .chat-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+    z-index: 2;
+  }
+  
+  .chat-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Messages container */
+  .messages-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #f5f7f9;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .message {
+    max-width: 70%;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    position: relative;
+    word-wrap: break-word;
+  }
+  
+  .message.sent {
+    align-self: flex-end;
+    background-color: #dcf8c6;
+  }
+  
+  .message.received {
+    align-self: flex-start;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .message-content {
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+  }
+  
+  .message-time {
+    font-size: 0.7rem;
+    color: #888;
+    text-align: right;
+  }
+  
+  .no-messages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #999;
+    font-style: italic;
+  }
+  
+  /* Message input */
+  .message-input {
+    display: flex;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e0e0e0;
+  }
+  
+  .message-input input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    margin-right: 10px;
+  }
+  
+  .message-input button {
+    padding: 8px 20px;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .message-input button:hover {
+    background-color: #40a9ff;
+  }
+  
+  .message-input button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* No conversation selected */
+  .no-conversation {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #666;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .no-conversation p {
+    font-size: 1.1rem;
+    max-width: 400px;
+  }
+  
+  /* Loading and error states */
+  .loading {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+  
+  .error-notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #ff4d4f;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    z-index: 1000;
+  }

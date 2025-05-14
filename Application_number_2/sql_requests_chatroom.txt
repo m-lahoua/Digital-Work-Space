@@ -1,0 +1,48 @@
+-- Create database (run this as a superuser)
+CREATE DATABASE chat_app;
+
+-- Connect to the database
+\c chat_app
+
+-- Create users table
+CREATE TABLE users (
+    user_id VARCHAR(255) PRIMARY KEY,  -- Will store Keycloak user IDs
+    username VARCHAR(100) NOT NULL,
+    role VARCHAR(50) NOT NULL,  -- 'prof' or 'etudiant'
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create conversations table (for grouping messages)
+CREATE TABLE conversations (
+    conversation_id SERIAL PRIMARY KEY,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    last_message_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    -- For student-professor chat, we'll have both participants
+    prof_id VARCHAR(255) REFERENCES users(user_id),
+    student_id VARCHAR(255) REFERENCES users(user_id)
+);
+
+-- Create messages table
+CREATE TABLE messages (
+    message_id SERIAL PRIMARY KEY,
+    conversation_id INTEGER REFERENCES conversations(conversation_id) ON DELETE CASCADE,
+    sender_id VARCHAR(255) REFERENCES users(user_id),
+    message_text TEXT NOT NULL,
+    sent_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    is_read BOOLEAN DEFAULT FALSE
+);
+
+-- Create indexes for better performance
+CREATE INDEX idx_messages_conversation ON messages(conversation_id);
+CREATE INDEX idx_messages_sender ON messages(sender_id);
+CREATE INDEX idx_conversations_prof ON conversations(prof_id);
+CREATE INDEX idx_conversations_student ON conversations(student_id);
+
+-- Create a view for unread message counts
+CREATE VIEW unread_messages AS
+SELECT 
+    conversation_id,
+    COUNT(*) as unread_count
+FROM messages
+WHERE is_read = FALSE
+GROUP BY conversation_id;

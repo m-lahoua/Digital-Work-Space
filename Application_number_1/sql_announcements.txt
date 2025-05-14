@@ -1,0 +1,14 @@
+-- Create announcements table
+CREATE TABLE IF NOT EXISTS announcements (
+    id VARCHAR(22) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    author VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    target_folder VARCHAR(255),
+    target_file VARCHAR(255),
+    event_date TIMESTAMP
+);
+
+-- Index for faster queries
+CREATE INDEX IF NOT EXISTS idx_announcements_created_at ON announcements(created_at);

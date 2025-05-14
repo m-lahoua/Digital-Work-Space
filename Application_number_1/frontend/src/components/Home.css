@@ -1,0 +1,143 @@
+/* Home.css avec effet glassmorphism */
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url('./Images/background.jpg'); /* Remplacez par le chemin de votre image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+  background-color: transparent; /* Retiré le fond gris */
+  color: #fff;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: antiquewhite;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin-bottom: 2rem;
+  color: antiquewhite;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.role-selection {
+  margin: 2rem 0;
+  background-color: rgba(241, 238, 238, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  width: 90%;
+  max-width: 600px;
+}
+
+.role-selection h2 {
+  color: antiquewhite;
+}
+
+.role-btn {
+  padding: 1rem 2rem;
+  margin: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.student-btn {
+  background-color: rgba(76, 175, 80, 0.8); /* Vert semi-transparent */
+  color: white;
+}
+
+.teacher-btn {
+  background-color: rgba(33, 150, 243, 0.8); /* Bleu semi-transparent */
+  color: white;
+}
+
+.role-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+}
+
+.role-btn:active {
+  transform: translateY(0px);
+}
+
+.signup-link {
+  margin-top: 2rem;
+  color: #fff;
+  font-size: 1.1rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.signup-link span {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 500;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+.signup-link span:hover {
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* Animation pour un effet d'apparition */
+@keyframes fadeIn {
+  from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+  }
+  to { 
+      opacity: 1; 
+      transform: translateY(0);
+  }
+}
+
+.home-container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.role-selection {
+  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* Design responsive */
+@media (max-width: 768px) {
+  .role-btn {
+      padding: 0.8rem 1.5rem;
+      margin: 0.5rem;
+      width: 80%;
+  }
+  
+  .role-selection {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+}

@@ -1,0 +1,66 @@
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7f9;
+  text-align: center;
+  padding: 20px;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.role-selection {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.role-selection h2 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
+.role-btn {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  margin: 10px;
+  min-width: 200px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.role-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.student-btn {
+  background-color: #1890ff;
+}
+
+@media (max-width: 768px) {
+  .home-container h1 {
+    font-size: 2rem;
+  }
+  
+  .role-selection h2 {
+    font-size: 1.2rem;
+  }
+  
+  .role-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
